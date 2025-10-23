@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Morgan | Creative Developer</title>
+    <title>Alex Morgan | Portfolio & Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for consistent theming */
+        /* CSS Variables */
         :root {
             --primary: #6C63FF;
             --secondary: #FF6584;
+            --accent: #4ECDC4;
             --dark: #1A1A2E;
             --darker: #0F0F1B;
             --light: #F5F5F7;
@@ -17,6 +19,7 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             --radius: 12px;
+            --section-padding: 100px 0;
         }
 
         /* Base Styles */
@@ -24,7 +27,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         html {
@@ -46,7 +49,7 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: var(--section-padding);
         }
 
         h1, h2, h3, h4 {
@@ -279,7 +282,7 @@
         .shape-3 {
             width: 150px;
             height: 150px;
-            background: #4ECDC4;
+            background: var(--accent);
             top: 50%;
             right: 30%;
             animation: float 10s ease-in-out infinite 2s;
@@ -342,7 +345,133 @@
             display: block;
         }
 
+        /* Resume Section */
+        .resume {
+            background-color: var(--darker);
+        }
+
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .resume-section {
+            margin-bottom: 50px;
+        }
+
+        .resume-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .resume-section h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--dark);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-subtitle {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* Skills Progress */
+        .skills-progress {
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .skill-percent {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        }
+
         /* Projects Section */
+        .projects {
+            background-color: var(--dark);
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -350,7 +479,7 @@
         }
 
         .project-card {
-            background: var(--dark);
+            background: var(--darker);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -415,7 +544,7 @@
 
         /* Contact Section */
         .contact {
-            background-color: var(--dark);
+            background-color: var(--darker);
         }
 
         .contact-content {
@@ -449,7 +578,7 @@
         }
 
         .contact-form {
-            background: var(--darker);
+            background: var(--dark);
             padding: 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -488,7 +617,7 @@
 
         /* Footer */
         footer {
-            background-color: var(--darker);
+            background-color: var(--dark);
             padding: 50px 0 20px;
             text-align: center;
         }
@@ -557,6 +686,7 @@
             }
             
             .about-content,
+            .resume-content,
             .contact-content {
                 grid-template-columns: 1fr;
             }
@@ -631,6 +761,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -679,6 +810,122 @@
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Alex Morgan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume" id="resume">
+        <div class="container">
+            <h2>My Resume</h2>
+            <div class="resume-content">
+                <!-- Education Column -->
+                <div class="resume-column">
+                    <div class="resume-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2016 - 2020</div>
+                                <h4 class="timeline-title">Bachelor of Computer Science</h4>
+                                <div class="timeline-subtitle">Stanford University</div>
+                                <p>Specialized in Human-Computer Interaction and Web Technologies. Graduated with honors.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2020 - 2021</div>
+                                <h4 class="timeline-title">UI/UX Design Certification</h4>
+                                <div class="timeline-subtitle">Interaction Design Foundation</div>
+                                <p>Advanced certification in user-centered design principles and methodologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3><i class="fas fa-trophy"></i> Awards</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022</div>
+                                <h4 class="timeline-title">Best UI Design</h4>
+                                <div class="timeline-subtitle">Awwwards</div>
+                                <p>Received recognition for innovative user interface design on the EcoTracker application.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021</div>
+                                <h4 class="timeline-title">Developer of the Year</h4>
+                                <div class="timeline-subtitle">Tech Innovation Awards</div>
+                                <p>Awarded for outstanding contributions to open-source projects and community development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Column -->
+                <div class="resume-column">
+                    <div class="resume-section">
+                        <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021 - Present</div>
+                                <h4 class="timeline-title">Senior Frontend Developer</h4>
+                                <div class="timeline-subtitle">TechVision Inc.</div>
+                                <p>Lead frontend development for enterprise applications, mentor junior developers, and implement modern UI frameworks.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2019 - 2021</div>
+                                <h4 class="timeline-title">UI/UX Designer</h4>
+                                <div class="timeline-subtitle">Creative Solutions LLC</div>
+                                <p>Designed user interfaces for web and mobile applications, conducted user research, and created interactive prototypes.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2018 - 2019</div>
+                                <h4 class="timeline-title">Web Developer</h4>
+                                <div class="timeline-subtitle">Digital Agency Co.</div>
+                                <p>Developed responsive websites and web applications for various clients across different industries.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3><i class="fas fa-chart-bar"></i> Skills</h3>
+                        <div class="skills-progress">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML/CSS</span>
+                                    <span class="skill-percent">95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">React</span>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">UI/UX Design</span>
+                                    <span class="skill-percent">88%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -866,6 +1113,26 @@
                     });
                 }
             });
+        });
+
+        // Animate progress bars when they come into view
+        const progressBars = document.querySelectorAll('.progress');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    const width = progressBar.style.width;
+                    progressBar.style.width = '0';
+                    setTimeout(() => {
+                        progressBar.style.width = width;
+                    }, 300);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        progressBars.forEach(bar => {
+            observer.observe(bar);
         });
     </script>
 </body>
