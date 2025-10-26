@@ -307,34 +307,50 @@ function consoleText(words, id, colors) {
   }, 400)
 }
 /**Data Submit*/
-var form = document.getElementById("contact-form");
-  
-  async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("my-form-status");
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        status.innerHTML = "Thanks for your submission!";
-        form.reset()
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-          } else {
-            status.innerHTML = "Oops! There was a problem submitting your form"
-          }
-        })
-      }
-    }).catch(error => {
-      status.innerHTML = "Oops! There was a problem submitting your form"
-    });
-  }
-  form.addEventListener("submit", handleSubmit)
+// Contact Form Submission
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('.primary-btn');
+    submitBtn.textContent = 'Sending...';
+    form.classList.add('submitting');
+
+    // Remove any existing messages
+    let messageEl = form.querySelector('.form-message');
+    if (messageEl) messageEl.remove();
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            const successMessage = document.createElement('p');
+            successMessage.className = 'form-message success';
+            successMessage.textContent = 'Thank you for your message! I’ll get back to you soon.';
+            form.appendChild(successMessage);
+        } else {
+            const errorData = await response.json();
+            const errorMessage = document.createElement('p');
+            errorMessage.className = 'form-message error';
+            errorMessage.textContent = errorData.error || 'An error occurred. Please check the domain or try again later.';
+            form.appendChild(errorMessage);
+        }
+    } catch (error) {
+        const errorMessage = document.createElement('p');
+        errorMessage.className = 'form-message error';
+        errorMessage.textContent = 'Network error. Please try again later.';
+        form.appendChild(errorMessage);
+    } finally {
+        submitBtn.textContent = 'Send Message';
+        form.classList.remove('submitting');
+    }
+});
+
 
