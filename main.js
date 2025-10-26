@@ -1,3 +1,14 @@
+const themeSwitch = document.getElementById('theme-switch');
+themeSwitch.addEventListener('click', () => {
+	//alert('san');
+    const currentTheme = document.body.getAttribute('data-theme');
+    document.body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    localStorage.setItem('theme', document.body.getAttribute('data-theme'));
+});
+
+// Load saved theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.body.setAttribute('data-theme', savedTheme);
 const projects = [
     {
         category: "web",
@@ -246,17 +257,7 @@ renderProjects();
             });
         });
 
-const themeSwitch = document.getElementById('theme-switch');
-themeSwitch.addEventListener('click', () => {
-	//alert('san');
-    const currentTheme = document.body.getAttribute('data-theme');
-    document.body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-    localStorage.setItem('theme', document.body.getAttribute('data-theme'));
-});
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.body.setAttribute('data-theme', savedTheme);
 
 function consoleText(words, id, colors) {
   if (colors === undefined) colors = ['#fff'];
@@ -335,6 +336,7 @@ contactForm.addEventListener('submit', async (e) => {
             successMessage.className = 'form-message success';
             successMessage.textContent = 'Thank you for your message! I’ll get back to you soon.';
             form.appendChild(successMessage);
+			setTimeout(function() {window.location.href = response.next;}, 2000);
         } else {
             const errorData = await response.json();
             const errorMessage = document.createElement('p');
@@ -352,5 +354,6 @@ contactForm.addEventListener('submit', async (e) => {
         form.classList.remove('submitting');
     }
 });
+
 
 
