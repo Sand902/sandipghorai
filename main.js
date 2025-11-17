@@ -29,6 +29,7 @@ const projects = [
     {
         category: "web",
         title: "Inventory & Pharmacy",
+		description: "",
         image: "webdevelopment/2.png",
         tags: ["PHP", "HTML", "CSS", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -36,6 +37,7 @@ const projects = [
     {
         category: "wordpress",
         title: "Blog",
+		description: "This is a fully customizable WordPress blog site, designed and developed to meet the specific requirements and preferences of the client.",
         image: "wordpress/1.png",
         tags: ["PHP", "HTML", "CSS", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -43,8 +45,7 @@ const projects = [
     {
         category: "wordpress",
         title: "E-commerce",
-        description: "This is an eCommerce platform built on WordPress, allowing users to download their designs. It features custom product control, user registration, verification, a thank you page, and over 7,000 products under full control.
-",
+        description: "This is an eCommerce platform built on WordPress, allowing users to download their designs. It features custom product control, user registration, verification, a thank you page, and over 7,000 products under full control.",
         image: "wordpress/2.png",
         tags: ["PHP", "WordPress", "Elementor", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -353,6 +354,7 @@ contactForm.addEventListener('submit', async (e) => {
         form.classList.remove('submitting');
     }
 });
+
 
 
 
