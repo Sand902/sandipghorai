@@ -13,7 +13,7 @@ const projects = [
     {
         category: "web",
         title: "Hotel Management Platform",
-        description: "A full-featured online store with product catalog, shopping cart, and secure payment processing.",
+        description: "A full-featured online Hotel management software.",
         image: "webdevelopment/3.png",
         tags: ["PHP", "HTML", "CSS", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -21,7 +21,7 @@ const projects = [
     {
         category: "web",
         title: "EMR",
-        description: "A full-featured online store with product catalog, shopping cart, and secure payment processing.",
+        description: "A fully functional EMR software.",
         image: "webdevelopment/1.png",
         tags: ["PHP", "HTML", "CSS", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -29,7 +29,6 @@ const projects = [
     {
         category: "web",
         title: "Inventory & Pharmacy",
-        description: "A full-featured online store with product catalog, shopping cart, and secure payment processing.",
         image: "webdevelopment/2.png",
         tags: ["PHP", "HTML", "CSS", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -37,7 +36,6 @@ const projects = [
     {
         category: "wordpress",
         title: "Blog",
-        description: "A full-featured online store with product catalog, shopping cart, and secure payment processing.",
         image: "wordpress/1.png",
         tags: ["PHP", "HTML", "CSS", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -45,7 +43,8 @@ const projects = [
     {
         category: "wordpress",
         title: "E-commerce",
-        description: "Free download base WordPress e-commerce website.",
+        description: "This is an eCommerce platform built on WordPress, allowing users to download their designs. It features custom product control, user registration, verification, a thank you page, and over 7,000 products under full control.
+",
         image: "wordpress/2.png",
         tags: ["PHP", "WordPress", "Elementor", "JavaScript"],
         links: { live: "#", github: "#" }
@@ -53,7 +52,7 @@ const projects = [
     {
         category: "wordpress",
         title: "Donation & Fundraising",
-        description: "A full-featured online store with product catalog, shopping cart, and secure payment processing.",
+        description: "A WordPress fundraising platform designed with robust features such as a custom dashboard, secure donation options, detailed reporting, and more to enhance fundraising efforts.",
         image: "wordpress/3.png",
         tags: ["PHP", "WordPress", "Crowdfunding", "Custom"],
         links: { live: "#", github: "#" }
@@ -61,7 +60,7 @@ const projects = [
     {
         category: "wordpress",
         title: "Consulting Services",
-        description: "A full-featured online store with product catalog, shopping cart, and secure payment processing.",
+        description: "Simple Bolg base Site.",
         image: "wordpress/4.png",
         tags: ["PHP", "WordPress", "Divi"],
         links: { live: "#", github: "#" }
@@ -354,6 +353,7 @@ contactForm.addEventListener('submit', async (e) => {
         form.classList.remove('submitting');
     }
 });
+
 
 
 
