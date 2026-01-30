@@ -1,7 +1,7 @@
 {
   "name": "Sandip Ghorai Portfolio",
   "short_name": "Sandip",
-  "start_url": "/",
+  "start_url": "sandipghorai/",
   "display": "standalone",
   "theme_color": "#6c63ff",
   "background_color": "#050816",
