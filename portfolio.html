@@ -1758,6 +1758,48 @@ position: relative !important;
 <!-- SWIPER JS --> 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
 <script>
+let titleInterval;
+
+  document.addEventListener("visibilitychange", function () {
+
+    // ✅ When user leaves tab
+    if (document.hidden) {
+      clearInterval(titleInterval);
+      document.title = "Thank You! Visit Again 👋";
+    }
+
+    // ✅ When user comes back
+    else {
+      const titles = [
+        "Welcome to my portfolio 🚀",
+        "Sandip Ghorai | Full Stack Developer 💻"
+      ];
+
+      let index = 0;
+
+      // Start animation loop
+      titleInterval = setInterval(() => {
+        document.title = titles[index];
+        index = (index + 1) % titles.length;
+      }, 2000); // change every 2 sec
+    }
+
+  });
+
+  // ✅ Start default title animation on page load
+  window.onload = () => {
+    const titles = [
+      "Welcome to my portfolio 🚀",
+      "Sandip Ghorai | Full Stack Developer 💻"
+    ];
+
+    let index = 0;
+
+    titleInterval = setInterval(() => {
+      document.title = titles[index];
+      index = (index + 1) % titles.length;
+    }, 2000);
+  };
 const themeSwitch = document.getElementById('theme-switch');
 themeSwitch.addEventListener('click', () => {
 	//alert('san');
@@ -2007,4 +2049,5 @@ contactForm.addEventListener('submit', async (e) => {
 </script>
 </body>
 </html>
+
 
