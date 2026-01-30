@@ -1922,6 +1922,54 @@ themeSwitch.addEventListener('click', () => {
       document.getElementById("entPrice").innerHTML="$39";
     }
   }
+  /**Data Submit*/
+// Contact Form Submission
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('.primary-btn');
+    submitBtn.textContent = 'Sending...';
+    form.classList.add('submitting');
+
+    // Remove any existing messages
+    let messageEl = form.querySelector('.form-message');
+    if (messageEl) messageEl.remove();
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            const successMessage = document.createElement('p');
+            successMessage.className = 'form-message success';
+            successMessage.textContent = 'Thank you for your message! I'll get back to you soon.';
+            form.appendChild(successMessage);
+			setTimeout(function() {window.location.href = 'thanks.html';}, 2000);
+        } else {
+            const errorData = await response.json();
+            const errorMessage = document.createElement('p');
+            errorMessage.className = 'form-message error';
+            errorMessage.textContent = errorData.error || 'An error occurred. Please check the domain or try again later.';
+            form.appendChild(errorMessage);
+        }
+    } catch (error) {
+        const errorMessage = document.createElement('p');
+        errorMessage.className = 'form-message error';
+        errorMessage.textContent = 'Network error. Please try again later.';
+        form.appendChild(errorMessage);
+    } finally {
+        submitBtn.textContent = 'Send Message';
+        form.classList.remove('submitting');
+    }
+});
+
 </script>
 </body>
 </html>
