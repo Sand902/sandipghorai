@@ -1760,34 +1760,15 @@ position: relative !important;
 <script>
 let titleInterval;
 
-  document.addEventListener("visibilitychange", function () {
+  // Favicons
+  const normalFavicon = "icon.jpg";  
+  const thankYouFavicon =
+    "https://twemoji.maxcdn.com/v/latest/72x72/1f64f.png"; 
+  // 👋 emoji favicon
 
-    // ✅ When user leaves tab
-    if (document.hidden) {
-      clearInterval(titleInterval);
-      document.title = "Thank You! Visit Again 👋";
-    }
+  const faviconTag = document.getElementById("favicon");
 
-    // ✅ When user comes back
-    else {
-      const titles = [
-        "Welcome to my portfolio 🚀",
-        "Sandip Ghorai | Full Stack Developer 💻"
-      ];
-
-      let index = 0;
-
-      // Start animation loop
-      titleInterval = setInterval(() => {
-        document.title = titles[index];
-        index = (index + 1) % titles.length;
-      }, 2000); // change every 2 sec
-    }
-
-  });
-
-  // ✅ Start default title animation on page load
-  window.onload = () => {
+  function startTitleAnimation() {
     const titles = [
       "Welcome to my portfolio 🚀",
       "Sandip Ghorai | Full Stack Developer 💻"
@@ -1799,6 +1780,31 @@ let titleInterval;
       document.title = titles[index];
       index = (index + 1) % titles.length;
     }, 2000);
+  }
+
+  document.addEventListener("visibilitychange", function () {
+
+    // ✅ User leaves tab
+    if (document.hidden) {
+      clearInterval(titleInterval);
+
+      document.title = "Thank You! Visit Again 👋";
+
+      // Change favicon to emoji
+      faviconTag.href = thankYouFavicon;
+    }
+
+    // ✅ User returns tab
+    else {
+      faviconTag.href = normalFavicon;
+
+      startTitleAnimation();
+    }
+  });
+
+  // Start animation on page load
+  window.onload = () => {
+    startTitleAnimation();
   };
 const themeSwitch = document.getElementById('theme-switch');
 themeSwitch.addEventListener('click', () => {
@@ -2049,5 +2055,6 @@ contactForm.addEventListener('submit', async (e) => {
 </script>
 </body>
 </html>
+
 
 
