@@ -77,6 +77,8 @@ h2 {
 .portfolio-card img {
 	width:100%;
 	border-radius:12px;
+	height: 300px;
+    object-fit: cover;
 }
 /* ================= STATS ================= */
     .stats {
@@ -163,7 +165,12 @@ h2 {
 	color:#b6c4ff;
 	margin:10px 0;
 }
-
+@media(max-width: 770px) {
+	.hero-slider-box {
+	margin-left: 0% !important;
+    max-width: 450px !important;	
+	}
+}
     /* ================= RESPONSIVE ================= */
     @media(max-width:900px) {
  header {
@@ -1501,30 +1508,25 @@ position: relative !important;
   <p class="subtitle">A showcase of my latest work and development experience.</p>
   <div class="swiper portfolio-slider">
     <div class="swiper-wrapper">
-      <div class="swiper-slide portfolio-card"> <img src="https://picsum.photos/300/200?4">
+      <div class="swiper-slide portfolio-card"> <img src="webdevelopment/1.png">
         <div class="project-content">
-          <h3>Hospital Management System</h3>
-          <p>Complete HMS with payroll, billing, and pharmacy.</p>
+          <h3>Kolkata – Urologist EMR System</h3>
+          <p>A fully featured and customizable Electronic Medical Record (EMR) system built for urology specialists, enabling seamless patient management across multiple clinic locations with modern UI, digital prescriptions, reporting, and smart documentation features.</p>
         </div>
       </div>
       <div class="swiper-slide portfolio-card"> <img src="https://picsum.photos/300/200?5">
         <div class="project-content">
-          <h3>Doctor's EMR</h3>
-          <p>A complete EMR system with a modern clinical UI with supporting advanced features.</p>
+          <h3>Investment & Finance Website</h3>
+          <p>A responsive and modern wealth management website designed to highlight investment services, client engagement, and professional branding.</p>
         </div>
       </div>
       <div class="swiper-slide portfolio-card"> <img src="https://picsum.photos/300/200?6">
         <div class="project-content">
-          <h3>Inventory & Distribution</h3>
-          <p>Large-scale inventory + retail marketplace platform.</p>
+          <h3>Real Estate Website</h3>
+          <p>A modern estate agency website developed for Homeview Properties, showcasing property search, sales and lettings services, free valuation requests, and comprehensive support for landlords and tenants with a responsive and user-friendly interface.</p>
         </div>
       </div>
-      <div class="swiper-slide portfolio-card"> <img src="https://picsum.photos/300/200?7">
-        <div class="project-content">
-          <h3>Prestrashop Development</h3>
-          <p>Full PrestaShop e-commerce development including payroll, billing, and stock..</p>
-        </div>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -1736,42 +1738,65 @@ themeSwitch.addEventListener('click', () => {
       desc: "A full-featured online hotel management software.",
       category: "web",
       tags: ["PHP", "HTML", "CSS", "JavaScript"],
-      img: "https://picsum.photos/400/250?1"
+      img: "webdevelopment/3.png"
     },
     {
       title: "EMR",
-      desc: "A fully functional EMR software system.",
+      desc: "A fully functional profetional doctors & Cinic EMR software system.",
       category: "web",
       tags: ["PHP", "HTML", "CSS", "JavaScript"],
-      img: "https://picsum.photos/400/250?2"
+      img: "webdevelopment/1.png"
     },
     {
       title: "Inventory & Pharmacy",
-      desc: "Inventory + Pharmacy Management Platform.",
+      desc: "Inventory + Pharmacy Management Software.",
       category: "ecommerce",
       tags: ["PHP", "HTML", "CSS", "JavaScript"],
-      img: "https://picsum.photos/400/250?3"
+      img: "webdevelopment/2.png"
     },
     {
       title: "Blog",
-      desc: "Custom WordPress blog system for clients.",
+      desc: "This is a fully customizable WordPress blog site, designed and developed to meet the specific requirements and preferences of the client.",
       category: "wordpress",
       tags: ["PHP", "WordPress", "CSS"],
-      img: "https://picsum.photos/400/250?4"
+      img: "wordpress/1.png"
+    },
+    {
+      title: "Professional",
+      desc: "This is a professional site, designed and developed to meet the specific requirements and preferences of the client.",
+      category: "wordpress",
+      tags: ["PHP", "WordPress","Divi", "CSS"],
+      img: "wordpress/4.png"
     },
     {
       title: "E-commerce",
-      desc: "WooCommerce platform with full product control.",
+      desc: "This is an eCommerce platform built on WordPress, allowing users to download their designs. It features custom product control, user registration, verification, a thank you page, and over 7,000 products under full control.",
       category: "ecommerce",
       tags: ["WordPress", "Elementor", "JavaScript"],
-      img: "https://picsum.photos/400/250?5"
+      img: "wordpress/2.png"
+    },
+    {
+        category: "ecommerce",
+        title: "E-commerce",
+        desc: "This is a fully customizable PrestaShop e-commerce website.",
+        img: "ecommerce/2.png",
+        tags: ["PHP", "PrestaShop"],
+        links: { live: "#", github: "#" }
+    },
+    {
+        category: "plugin",
+        title: "User Management WordPress Plugin",
+        desc: "A productivity application for teams to collaborate on projects, assign tasks, and track progress.",
+        img: "wordpress/plugin/plugin.png",
+        tags: ["PHP", "Wordpress", "HTML", "JavaScript"],
+        links: { live: "#", github: "#" }
     },
     {
       title: "Donation & Fundraising",
-      desc: "Fundraising dashboard with secure donation options.",
+      desc: "A WordPress fundraising platform designed with robust features such as a custom dashboard, secure donation options, detailed reporting, and more to enhance fundraising efforts.",
       category: "wordpress",
       tags: ["WordPress", "Crowdfunding", "Custom"],
-      img: "https://picsum.photos/400/250?6"
+      img: "wordpress/3.png"
     }
   ];
 
