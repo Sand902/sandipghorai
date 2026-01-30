@@ -1949,7 +1949,7 @@ contactForm.addEventListener('submit', async (e) => {
             form.reset();
             const successMessage = document.createElement('p');
             successMessage.className = 'form-message success';
-            successMessage.textContent = 'Thank you for your message! I'll get back to you soon.';
+            successMessage.textContent = "Thank you for your message! I'll get back to you soon.";
             form.appendChild(successMessage);
 			setTimeout(function() {window.location.href = 'thanks.html';}, 2000);
         } else {
